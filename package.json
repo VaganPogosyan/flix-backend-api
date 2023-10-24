@@ -1,0 +1,14 @@
+{
+  "name": "flix-backend-api",
+  "version": "1.0.0",
+  "description": "Api for the Flix app",
+  "main": "server.js",
+  "scripts": {
+    "start": "nodemon server.js"
+  },
+  "author": "Vagan Pogosyan",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.18.2"
+  }
+}
