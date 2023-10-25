@@ -7,8 +7,7 @@ const getGenres = async (req, res) => {
     method: "GET",
     headers: {
       accept: "application/json",
-      Authorization:
-        "Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI5NWIwNTJkYjI1MGFiNjE1ZGQ5M2ZlN2IzNTQxODVjYyIsInN1YiI6IjY1MzdlZTZlN2ZjYWIzMDBhZDdlNTRkNSIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.3D7KrS8A99Ir5mvfWNUT0qjBLLVGqhwVb8Iw8aqB_Cg",
+      Authorization: `Bearer ${process.env.TMDB_AUTH_ACESS_TOKEN}`,
     },
   };
 
