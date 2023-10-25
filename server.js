@@ -16,6 +16,12 @@ const app = express();
 
 app.use("/api/movies", moviesRouter);
 
+app.all("*", (req, res) => {
+  res.status(404).json({
+    status: "failed",
+    message: "Page Not Found",
+  });
+});
 // Handle all errors
 app.use(errorHandler);
 

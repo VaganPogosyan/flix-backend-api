@@ -24,6 +24,7 @@ const getWesternMovies = require("./controllers/getWesternMovies");
 const getActionAdventureTVShows = require("./controllers/getActionAdventureTVShows");
 const getRealityTVShows = require("./controllers/getRealityTVShows");
 const getSciFiFantasyTVShows = require("./controllers/getSciFiFantasyTVShows");
+const searchMovie = require("./controllers/searchMovie");
 
 // Set express Router for movies
 const moviesRouter = express.Router();
@@ -57,5 +58,8 @@ moviesRouter.get("/western_movies", getWesternMovies);
 moviesRouter.get("/action_adventure_tvshows", getActionAdventureTVShows);
 moviesRouter.get("/reality_tvshows", getRealityTVShows);
 moviesRouter.get("/scifi_fantasy_tvshows", getSciFiFantasyTVShows);
+
+// Search movie by name
+moviesRouter.get("/search", searchMovie);
 
 module.exports = moviesRouter;

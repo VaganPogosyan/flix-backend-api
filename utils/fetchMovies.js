@@ -42,6 +42,12 @@ const fetchMoviesWithPage = async (pageNumber) => {
   );
 };
 
+// Search for a movie by name
+const searchMovieByName = async (name, pageNumber) =>
+  await fetchMovies(
+    `https://api.themoviedb.org/3/search/movie?query=${name}&include_adult=false&language=en-US&page=${pageNumber}`
+  );
+
 module.exports = {
   fetchTrendingMovies,
   fetchTopRatedMovies,
@@ -50,4 +56,6 @@ module.exports = {
   fetchPopularTVShows,
   // By Genre
   fetchMoviesWithPage,
+  // Search
+  searchMovieByName,
 };
