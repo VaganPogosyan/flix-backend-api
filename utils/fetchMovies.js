@@ -37,13 +37,9 @@ const fetchTopRatedTVShows = async () =>
 
 // By Genre
 const fetchMoviesWithPage = async (pageNumber) => {
-  console.log(pageNumber);
-  const pageStr = pageNumber.toString();
-  const x = await fetchMovies(
+  return await fetchMovies(
     `https://api.themoviedb.org/3/trending/all/day?language=en-US&page=${pageNumber}`
   );
-  // console.log(x);
-  return x;
 };
 
 module.exports = {

@@ -10,9 +10,9 @@ const getMoviesByGenreId = async (genre_id) => {
     const data = movies.results;
 
     for (let i = 0; i < data.length; i++) {
-      if (moviesByGenre.length > AMOUNT_OF_MOVIES) break;
       if (data[i].genre_ids.includes(genre_id)) {
         moviesByGenre.push(data[i]);
+        if (moviesByGenre.length >= AMOUNT_OF_MOVIES) break;
       }
     }
 

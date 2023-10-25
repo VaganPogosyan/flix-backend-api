@@ -1,7 +1,7 @@
 const getMoviesByGenreId = require("../../../utils/getMoviesByGenreId");
 
+// genre_id: 28 - Action
 const getActionMovies = async (req, res) => {
-  // genre_id: 28 - Action
   const actionMovies = await getMoviesByGenreId(28);
 
   res.status(200).json({
