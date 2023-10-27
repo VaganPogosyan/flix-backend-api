@@ -4,11 +4,13 @@ const errorHandler = require("./handlers/errorHandler");
 const mongoose = require("mongoose");
 
 const moviesRouter = require("./modules/movies/movies.routes");
+const userRouter = require("./modules/users/user.routes");
 require("dotenv").config();
 const PORT = 8000;
 
 const app = express();
-// app.use(express.json());
+// parses req.body (internally with bodyParser)
+app.use(express.json());
 
 // connection to mongodb
 mongoose
@@ -30,6 +32,7 @@ require("./models/users.model");
 // });
 
 app.use("/api/movies", moviesRouter);
+app.use("/api/user", userRouter);
 
 app.all("*", (req, res) => {
   res.status(404).json({
