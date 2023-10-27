@@ -1,12 +1,27 @@
 const express = require("express");
 require("express-async-errors");
-const moviesRouter = require("./modules/movies/movies.routes");
 const errorHandler = require("./handlers/errorHandler");
+const mongoose = require("mongoose");
 
+const moviesRouter = require("./modules/movies/movies.routes");
 require("dotenv").config();
 const PORT = 8000;
+
 const app = express();
 // app.use(express.json());
+
+// connection to mongodb
+mongoose
+  .connect(process.env.MONGO_DB_CONNECTION)
+  .then(() => {
+    console.log("Connection to MongoDB is successfull!");
+  })
+  .catch((error) => {
+    console.log("Connection to MongoDB failed!");
+  });
+
+//   Models initialization
+require("./models/users.model");
 
 // app.get("/api/", (req, res) => {
 //   res.status(200).json({
