@@ -5,6 +5,7 @@ const mongoose = require("mongoose");
 
 const moviesRouter = require("./modules/movies/movies.routes");
 const userRouter = require("./modules/users/user.routes");
+const profileRouter = require("./modules/profiles/profiles.routes");
 require("dotenv").config();
 const PORT = 8000;
 
@@ -24,6 +25,7 @@ mongoose
 
 //   Models initialization
 require("./models/users.model");
+require("./models/proflie.model");
 
 // app.get("/api/", (req, res) => {
 //   res.status(200).json({
@@ -33,6 +35,7 @@ require("./models/users.model");
 
 app.use("/api/movies", moviesRouter);
 app.use("/api/user", userRouter);
+app.use("/api/profile", profileRouter);
 
 app.all("*", (req, res) => {
   res.status(404).json({

@@ -1,6 +1,7 @@
 const validateEmail = require("../../../utils/validateEmail");
 const mongoose = require("mongoose");
 const bcrypt = require("bcrypt");
+const jwtManager = require("../../../managers/jwtManager");
 
 const loginUser = async (req, res) => {
   const userModel = mongoose.model("user");
@@ -19,10 +20,12 @@ const loginUser = async (req, res) => {
   const comparePassword = await bcrypt.compare(password, foundUser.password);
   if (!comparePassword) throw "Email and password do not match";
 
+  const accessToken = jwtManager(foundUser);
+
   res.status(200).json({
     status: "success",
     message: "Logged in successfully!",
-    data: foundUser,
+    accessToken,
   });
 };
 
