@@ -5,6 +5,7 @@ const createProfile = require("./controllers/createProfile");
 const editProfile = require("./controllers/editProfile");
 const getProfile = require("./controllers/getProfile");
 const deleteProfile = require("./controllers/deleteProfile");
+const addToWatchList = require("./controllers/addToWatchList");
 
 // Set express Router for users
 const profileRouter = express.Router();
@@ -19,5 +20,8 @@ profileRouter.get("/:profile_id", getProfile);
 profileRouter.post("/create_profile", createProfile);
 profileRouter.post("/edit_profile/:profile_id", editProfile);
 profileRouter.delete("/delete_profile/:profile_id", deleteProfile);
+
+// Movies
+profileRouter.post("/add_to_watchlist/:profile_id/:movie_id", addToWatchList);
 
 module.exports = profileRouter;
