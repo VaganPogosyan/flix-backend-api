@@ -14,6 +14,10 @@ const fetchMovies = async (url) => {
   return json;
 };
 
+const fetchMovieById = async (movie_id) =>
+  await fetchMovies(
+    `https://api.themoviedb.org/3/movie/${movie_id}?language=en-US`
+  );
 const fetchTrendingMovies = async () =>
   await fetchMovies(
     "https://api.themoviedb.org/3/trending/all/day?language=en-US&page=1"
@@ -58,4 +62,6 @@ module.exports = {
   fetchMoviesWithPage,
   // Search
   searchMovieByName,
+  // By ID
+  fetchMovieById,
 };

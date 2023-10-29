@@ -25,6 +25,7 @@ const getActionAdventureTVShows = require("./controllers/getActionAdventureTVSho
 const getRealityTVShows = require("./controllers/getRealityTVShows");
 const getSciFiFantasyTVShows = require("./controllers/getSciFiFantasyTVShows");
 const searchMovie = require("./controllers/searchMovie");
+const getMovieById = require("./controllers/getMovieById");
 
 // Set express Router for movies
 const moviesRouter = express.Router();
@@ -61,5 +62,8 @@ moviesRouter.get("/scifi_fantasy_tvshows", getSciFiFantasyTVShows);
 
 // Search movie by name
 moviesRouter.get("/search", searchMovie);
+
+// Get Movie By ID
+moviesRouter.get("/movie/:movie_id", getMovieById);
 
 module.exports = moviesRouter;
