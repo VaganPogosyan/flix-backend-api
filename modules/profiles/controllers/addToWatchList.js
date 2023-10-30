@@ -12,7 +12,10 @@ const addToWatchList = async (req, res) => {
     (movie) => movie.movie_id === req.params.movie_id
   );
 
+  let message = "";
+
   if (foundMovieIndex > -1) {
+    // remove from wathclist if it's already there
     watch_list.splice(foundMovieIndex, 1);
     await profileModel.updateOne(
       { _id: req.params.profile_id },
@@ -21,6 +24,7 @@ const addToWatchList = async (req, res) => {
       },
       { runValidators: true }
     );
+    message = "Removed from watch list";
   } else {
     await profileModel.updateOne(
       { _id: req.params.profile_id },
@@ -30,11 +34,12 @@ const addToWatchList = async (req, res) => {
 
       { runValidators: true }
     );
+    message = "Added to your watch list";
   }
 
   res.status(200).json({
     status: "success",
-    message: "Added to your watch list",
+    message,
   });
 };
 
