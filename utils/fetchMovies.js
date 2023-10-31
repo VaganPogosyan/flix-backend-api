@@ -18,26 +18,46 @@ const fetchMovieById = async (movie_id) =>
   await fetchMovies(
     `https://api.themoviedb.org/3/movie/${movie_id}?language=en-US`
   );
+
 const fetchTrendingMovies = async () =>
   await fetchMovies(
     "https://api.themoviedb.org/3/trending/all/day?language=en-US&page=1"
   );
-const fetchTopRatedMovies = async () =>
-  await fetchMovies(
-    "https://api.themoviedb.org/3/movie/top_rated?language=en-US&page=1"
+
+const fetchTopRatedMovies = async () => {
+  const randomPage = Math.ceil(Math.random() * 10);
+  return await fetchMovies(
+    `https://api.themoviedb.org/3/movie/top_rated?language=en-US&page=${randomPage}`
   );
-const fetchPopularMovies = async () =>
-  await fetchMovies(
-    "https://api.themoviedb.org/3/movie/top_rated?language=en-US&page=1"
+};
+
+const fetchPopularMovies = async () => {
+  const randomPage = Math.ceil(Math.random() * 10);
+  return await fetchMovies(
+    `https://api.themoviedb.org/3/movie/top_rated?language=en-US&page=${randomPage}`
   );
-const fetchPopularTVShows = async () =>
-  await fetchMovies(
-    "https://api.themoviedb.org/3/tv/popular?language=en-US&page=1"
+};
+
+const fetchPopularTVShows = async () => {
+  const randomPage = Math.ceil(Math.random() * 10);
+  return await fetchMovies(
+    `https://api.themoviedb.org/3/tv/popular?language=en-US&page=${randomPage}`
   );
-const fetchTopRatedTVShows = async () =>
-  await fetchMovies(
-    "https://api.themoviedb.org/3/tv/top_rated?language=en-US&page=1"
+};
+// await fetchMovies(
+//   "https://api.themoviedb.org/3/tv/popular?language=en-US&page=1"
+// );
+
+const fetchTopRatedTVShows = async () => {
+  const randomPage = Math.ceil(Math.random() * 10);
+  return await fetchMovies(
+    `https://api.themoviedb.org/3/tv/top_rated?language=en-US&page=${randomPage}`
   );
+};
+
+// await fetchMovies(
+//   "https://api.themoviedb.org/3/tv/top_rated?language=en-US&page=1"
+// );
 
 // By Genre
 const fetchMoviesWithPage = async (pageNumber) => {
