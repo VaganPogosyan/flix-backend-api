@@ -2,6 +2,7 @@ const express = require("express");
 require("express-async-errors");
 const errorHandler = require("./handlers/errorHandler");
 const mongoose = require("mongoose");
+var cors = require("cors");
 
 const moviesRouter = require("./modules/movies/movies.routes");
 const userRouter = require("./modules/users/user.routes");
@@ -10,6 +11,9 @@ require("dotenv").config();
 const PORT = 8000;
 
 const app = express();
+
+app.use(cors());
+
 // parses req.body (internally with bodyParser)
 app.use(express.json());
 
