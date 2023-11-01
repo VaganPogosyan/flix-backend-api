@@ -72,6 +72,14 @@ const searchMovieByName = async (name, pageNumber) =>
     `https://api.themoviedb.org/3/search/movie?query=${name}&include_adult=false&language=en-US&page=${pageNumber}`
   );
 
+// Get videso for a movie by movie_id
+const fetchVideos = async (movie_id) =>
+  await fetchMovies(
+    `https://api.themoviedb.org/3/movie/${movie_id}/videos?language=en-US`
+  );
+
+const url = "https://api.themoviedb.org/3/movie/945729/videos?language=en-US";
+
 module.exports = {
   fetchTrendingMovies,
   fetchTopRatedMovies,
@@ -84,4 +92,6 @@ module.exports = {
   searchMovieByName,
   // By ID
   fetchMovieById,
+  // Get videos for movie
+  fetchVideos,
 };

@@ -26,6 +26,7 @@ const getRealityTVShows = require("./controllers/getRealityTVShows");
 const getSciFiFantasyTVShows = require("./controllers/getSciFiFantasyTVShows");
 const searchMovie = require("./controllers/searchMovie");
 const getMovieById = require("./controllers/getMovieById");
+const getVideos = require("./controllers/getVideos");
 
 // Set express Router for movies
 const moviesRouter = express.Router();
@@ -65,5 +66,8 @@ moviesRouter.get("/search", searchMovie);
 
 // Get Movie By ID
 moviesRouter.get("/movie/:movie_id", getMovieById);
+
+// Get Videos
+moviesRouter.get("/movie/videos/:movie_id", getVideos);
 
 module.exports = moviesRouter;
