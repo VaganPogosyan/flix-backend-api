@@ -73,10 +73,12 @@ const searchMovieByName = async (name, pageNumber) =>
   );
 
 // Get videso for a movie by movie_id
-const fetchVideos = async (movie_id) =>
-  await fetchMovies(
-    `https://api.themoviedb.org/3/movie/${movie_id}/videos?language=en-US`
+const fetchVideos = async (movie_id, movie_or_tv) => {
+  const media_type = movie_or_tv;
+  return await fetchMovies(
+    `https://api.themoviedb.org/3/${media_type}/${movie_id}/videos?language=en-US`
   );
+};
 
 const url = "https://api.themoviedb.org/3/movie/945729/videos?language=en-US";
 

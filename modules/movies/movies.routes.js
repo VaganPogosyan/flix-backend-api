@@ -68,6 +68,6 @@ moviesRouter.get("/search", searchMovie);
 moviesRouter.get("/movie/:movie_id", getMovieById);
 
 // Get Videos
-moviesRouter.get("/movie/videos/:movie_id", getVideos);
+moviesRouter.get("/:movie_or_tv/videos/:movie_id", getVideos);
 
 module.exports = moviesRouter;

@@ -1,7 +1,10 @@
 const { fetchVideos } = require("../../../utils/fetchMovies");
 
 const getVideos = async (req, res) => {
-  const { results } = await fetchVideos(req.params.movie_id);
+  const { results } = await fetchVideos(
+    req.params.movie_id,
+    req.params.movie_or_tv
+  );
 
   const clip = results.find((video) => video.type === "Clip");
 
