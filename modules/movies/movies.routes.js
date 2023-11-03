@@ -27,6 +27,7 @@ const getSciFiFantasyTVShows = require("./controllers/getSciFiFantasyTVShows");
 const searchMovie = require("./controllers/searchMovie");
 const getMovieById = require("./controllers/getMovieById");
 const getVideos = require("./controllers/getVideos");
+const getRandomTrendingMovie = require("./controllers/getRandomTrendingMovie");
 
 // Set express Router for movies
 const moviesRouter = express.Router();
@@ -66,6 +67,9 @@ moviesRouter.get("/search", searchMovie);
 
 // Get Movie By ID
 moviesRouter.get("/movie/:movie_id", getMovieById);
+
+// Get Random Movie
+moviesRouter.get("/random_movie", getRandomTrendingMovie);
 
 // Get Videos
 moviesRouter.get("/:movie_or_tv/videos/:movie_id", getVideos);
