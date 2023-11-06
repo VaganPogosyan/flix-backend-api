@@ -9,7 +9,6 @@ const moviesRouter = require("./modules/movies/movies.routes");
 const userRouter = require("./modules/users/user.routes");
 const profileRouter = require("./modules/profiles/profiles.routes");
 require("dotenv").config();
-const PORT = 8000;
 
 const app = express();
 
@@ -44,6 +43,7 @@ require("./models/proflie.model");
 app.use("/api/movies", moviesRouter);
 app.use("/api/user", userRouter);
 app.use("/api/profile", profileRouter);
+
 app.get("/api", (req, res) => {
   res.send("API running!");
 });
@@ -56,6 +56,10 @@ app.all("*", (req, res) => {
 });
 // Handle all errors
 app.use(errorHandler);
+
+// IF(process.env.NODE_ENV === "production");
+
+const PORT = process.env.PORT || 8000;
 
 app.listen(PORT, () => {
   console.log(`Server is running on port: ${PORT}`);
