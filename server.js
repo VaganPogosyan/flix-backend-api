@@ -3,6 +3,7 @@ require("express-async-errors");
 const errorHandler = require("./handlers/errorHandler");
 const mongoose = require("mongoose");
 var cors = require("cors");
+// const bodyParser = require("body-parser");
 
 const moviesRouter = require("./modules/movies/movies.routes");
 const userRouter = require("./modules/users/user.routes");
@@ -15,7 +16,10 @@ const app = express();
 app.use(cors());
 
 // parses req.body (internally with bodyParser)
+// app.use(bodyParser.json());
+// app.use(bodyParser.urlencoded({ extended: false }));
 app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
 
 // connection to mongodb
 mongoose

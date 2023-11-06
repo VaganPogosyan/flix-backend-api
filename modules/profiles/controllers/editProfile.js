@@ -11,7 +11,7 @@ const editProfile = async (req, res) => {
       _id: req.params.profile_id,
     },
     {
-      name: req.body.name,
+      name: req.body.name.trim(),
       color: req.body.color,
     },
     { runValidators: true }

@@ -1,6 +1,7 @@
 const validateEmail = require("../../../utils/validateEmail");
 const mongoose = require("mongoose");
 const bcrypt = require("bcrypt");
+const jwtManager = require("../../../managers/jwtManager");
 
 const registerUser = async (req, res) => {
   const userModel = mongoose.model("user");
@@ -27,9 +28,12 @@ const registerUser = async (req, res) => {
     password: hashedPassword,
   });
 
+  const accessToken = jwtManager(createdUser);
+
   res.status(200).json({
     status: "success",
     message: "User registered successfully",
+    accessToken,
   });
 };
 

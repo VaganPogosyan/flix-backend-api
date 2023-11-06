@@ -10,6 +10,7 @@ const profileSchema = new mongoose.Schema(
     name: {
       type: String,
       required: [true, "Name is required"],
+      required: true,
     },
     color: {
       type: String,

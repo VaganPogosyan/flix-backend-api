@@ -1,4 +1,4 @@
-const colors = ["red", "green", "blue", "yellow", "orange", "purple"];
+const colors = ["red", "green", "blue", "orange", "violet"];
 
 const getRandomColor = () => {
   return colors[Math.floor(Math.random() * colors.length)];
