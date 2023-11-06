@@ -44,6 +44,9 @@ require("./models/proflie.model");
 app.use("/api/movies", moviesRouter);
 app.use("/api/user", userRouter);
 app.use("/api/profile", profileRouter);
+app.get("/api", (req, res) => {
+  res.send("API running!");
+});
 
 app.all("*", (req, res) => {
   res.status(404).json({
