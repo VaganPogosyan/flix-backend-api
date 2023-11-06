@@ -4,7 +4,7 @@ const express = require("express");
 const getTrendingMovies = require("./controllers/getTrendingMovies");
 const getTopRatedMovies = require("./controllers/getTopRatedMovies");
 const getPopularMovies = require("./controllers/getPopularMovies");
-const getTopRatedTVShows = require("./controllers/getTopRatedTvShows");
+const getTopRatedTVShows = require("./controllers/getTopRatedTVShows");
 const getPopularTVShows = require("./controllers/getPopularTVShows");
 const getGenres = require("./controllers/getGenres");
 const getActionMovies = require("./controllers/getActionMovies");
@@ -36,7 +36,7 @@ const moviesRouter = express.Router();
 moviesRouter.get("/trending", getTrendingMovies);
 moviesRouter.get("/top_rated_movies", getTopRatedMovies);
 moviesRouter.get("/popular_movies", getPopularMovies);
-// moviesRouter.get("/top_rated_tvshows", getTopRatedTVShows);
+moviesRouter.get("/top_rated_tvshows", getTopRatedTVShows);
 moviesRouter.get("/popular_tvshows", getPopularTVShows);
 
 // moviesRouter.get("/genres", getGenres);
