@@ -36,7 +36,7 @@ const moviesRouter = express.Router();
 moviesRouter.get("/trending", getTrendingMovies);
 moviesRouter.get("/top_rated_movies", getTopRatedMovies);
 moviesRouter.get("/popular_movies", getPopularMovies);
-moviesRouter.get("/top_rated_tvshows", getTopRatedTVShows);
+// moviesRouter.get("/top_rated_tvshows", getTopRatedTVShows);
 moviesRouter.get("/popular_tvshows", getPopularTVShows);
 
 // moviesRouter.get("/genres", getGenres);
